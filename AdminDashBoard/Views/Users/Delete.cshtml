@@ -1,0 +1,24 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="container section d-flex justify-content-center align-items-center">
+    <div class="col-md-7 rounded-4  shadow-lg  ">
+
+        <form asp-action="ConfirmDelete" class=" d-flex align-items-center justify-content-center py-5">
+            <div class=" form col-lg-6 d-flex flex-column  rounded-5 Form-Depatemnt ">
+
+                <partial name="PartialViews/DeleteDetailsUserPartial" />
+
+                <div class="d-flex align-items-center justify-content-center mt-4">
+                    <input type="submit" value="Delete" class="btn btn-danger me-3" />
+                    <a asp-controller="Users" asp-action="Index" class="btn btn-outline-light ms-3 "> Cancel</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

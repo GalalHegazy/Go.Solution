@@ -1,0 +1,13 @@
+﻿@model IReadOnlyList<Order>
+@foreach (var Order in Model)
+{
+    <tr>
+        <td>@Order.Id</td>
+        <td>@Order.BuyerEmail</td>
+        <td>@Order.Items.Select(o=>o.Product.ProductName).FirstOrDefault()</td>
+        <td>@Order.OrderDate.DateTime</td>
+        <td>@Order.DeliveryMethod.Cost</td>
+        <td>@Order.Status</td>
+        <td><a asp-action="Details" asp-route-id="@Order.Id.ToString()" class="btn btn-outline-warning rounded-circle "> <i class="fa-solid fa-eye"></i> </a></td>
+    </tr>
+}

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProductViewModel>
+
+@foreach (var Products in Model)
+{
+    <div class=" col-md-4 col-lg-3  ">
+        <div class="card card-product h-100">
+
+            <div class=" img-card d-flex justify-content-center align-items-center ">
+                <img src="~/@Products.PictureUrl" class="img-product card-img-top  rounded-4 " alt="Product Name" />
+            </div>
+
+
+            <div class="card-body  rounded-top-4 h-100 shadow-lg d-flex flex-column justify-content-between  align-items-center">
+
+                <h6 class="card-title fs-5 text-black text-center fw-bolder ">@Products.Name</h6>
+                <div class="  d-flex justify-content-between w-100 ">
+                    <span class="card-text  text-black-50 fw-bold text-start ">@Products.Brand.Name</span>
+                    <span class="card-text  text-black-50 fw-bold  text-end">@Products.Category.Name</span>
+                </div>
+
+                <div class=" w-100 d-flex justify-content-between ">
+                    <p class=" card-Description text-muted fw-lighter">@Products.Description</p>
+                </div>
+
+                <div class=" d-flex justify-content-end  w-100  ">
+                    <span class=" fs-2 text-dark  fw-bolder">@Products.Price EGP</span>
+            @*         <span class=" text-dark  fw-bolder">@Html.DisplayNameFor(x => x.HiringDate)</span>
+                    <span class="text-muted">@Html.DisplayFor(E => Employee.HiringDate) </span> *@
+                </div>
+
+
+
+            </div>
+
+
+            <div class="card-footer py-1  rounded-bottom-2 p-0 d-flex justify-content-between">
+            </div>
+
+            <div class="  d-flex justify-content-around my-1 p-1">
+                <partial name="_ButtonsIndexPartial" model="@Products.Id.ToString()" />
+            </div>
+
+        </div>
+    </div>
+}
+
+
+@* <a class="text-decoration-none">
+    <div class=" position-relative">
+        <img  class="img-product card-img-top w-100 h-100  p-2 rounded-4" >
+    </div>
+
+    <div class="card-body py-1 p-3 rounded-top-4 shadow-lg">
+        <h6 class="card-title fw-bold "></h6>
+        <p class="card-text fs-5 text-muted "></p>
+        <span class="text-muted fw-bolder">EGP</span>
+    </div>
+    <div class="card-footer py-1  rounded-bottom-2 p-0 d-flex justify-content-between">
+        <small class="text-body-secondary ms-1  fw-lighter">Sold By </small>
+        <small class="text-body-secondary me-1 rating rounded-5 px-1  ">  <i class="fa-solid fa-star "></i></small>
+    </div>
+</a>  *@

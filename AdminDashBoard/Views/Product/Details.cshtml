@@ -1,0 +1,23 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+
+<div class=" rounded-4  shadow-lg   ">
+    <form asp-action="Details" class=" row container ">
+
+        <partial name="PartialViews/DeleteDetailsProductPartial" />
+
+        <div class="d-flex align-items-center justify-content-center  my-5">
+            <a asp-controller="Product" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-success  ms-3 ">Edit</a>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-light ms-3 "> Back To List</a>
+        </div>
+    </form>
+</div>
+
+
+
+
+

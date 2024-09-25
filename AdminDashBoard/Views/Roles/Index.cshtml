@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RoleViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-left text-light fs-1 fw-bolder">All Roles.</h1>
+<div class=" container  rounded-5 shadow-lg  pb-4 mt-2 mb-5 ">
+    @if (Model.Count() > 0)
+    {
+
+        <div class=" d-flex justify-content-between row pt-4  ">
+            <form asp-action="Index" class="d-flex col-md-3  ">
+                <input class=" form-control" type="text" name="SearchInputRole" placeholder="Role Name">
+                <button class="btn btn-success ms-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div class=" d-flex justify-content-end col-md-3  ">
+                <a asp-controller="Roles" asp-action="Create" class="btn btn-success "> <i class="fa-solid fa-circle-plus me-1"></i>Add Role</a>
+            </div>
+        </div>
+
+        <div class="Role-Card  row mt-2 g-3  ">
+
+            <partial name="PartialViews/RolesTablePartial" />
+
+        </div>
+
+    }
+    else
+    {
+        <div class="Drpartmrnt-Error text-center py-5  ">
+            <i class="fa-solid fa-triangle-exclamation text-danger mb-3 "></i>
+            <h2 class="text-light "> There Is No Roles!</h2>
+            <a asp-controller="Roles" asp-action="Create" class="btn btn-success mb-1 mt-5 ">Create New Role</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,79 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Details";
+}
+<h1 class="text-left text-light fs-1 fw-bolder">Order#@Model.Id</h1>
+<div class="row   rounded-5 shadow-lg p-4 mb-5 ">
+    <div class="gap-2 d-flex justify-content-center align-content-center">
+        <div class="col-md-3 p-2  rounded-3 bg-white">
+            <h4 class="text-center">Cutomer</h4>
+            <hr />
+            <div class="d-flex  justify-content-between ">
+                <span class=" text-dark  fw-bolder ">Name :</span>
+                <span class="  text-muted ">@Model.Address.FirstName @Model.Address.LastName</span>
+            </div>
+            <div class=" mt-1  d-flex  justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Email :</span>
+                <span class="text-muted ">@Model.BuyerEmail</span>
+            </div>
+        </div>
+        <div class="col-md-3 p-2  rounded-3 bg-white">
+            <h4 class="text-center">Order</h4>
+            <hr />
+            <div class="   d-flex justify-content-between  ">
+                <span class="  text-dark fw-bolder   w-25  ">Name :</span>
+                <span class="   text-muted One-Line w-75 ">@Model.Items.Select(o => o.Product.ProductName).FirstOrDefault()</span>
+            </div>
+            <div class=" mt-1   d-flex justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Product Price :</span>
+                <span class="text-muted ">@Model.Items.Select(o => o.Price).FirstOrDefault()</span>
+            </div>
+            <div class=" mt-1  d-flex justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Quantity :</span>
+                <span class="text-muted ">@Model.Items.Select(o => o.Quantity).FirstOrDefault()</span>
+            </div>
+            <div class="mt-1   d-flex  justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Order Status :</span>
+                <span class="text-muted ">@Model.Status</span>
+            </div>
+            <div class=" mt-1  d-flex  justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Order Date :</span>
+                <span class="text-muted ">@Model.OrderDate.DateTime</span>
+            </div>
+            <div class=" mt-1  d-flex justify-content-between   ">
+                <span class=" text-dark fw-bolder ">SubTotal :</span>
+                <span class="text-muted ">@Model.SubTotal</span>
+            </div>
+        </div>
+        <div class="col-md-3 p-2  rounded-3 bg-white">
+            <h4 class="text-center">Shipping Address</h4>
+            <hr />
+            <div class="  d-flex justify-content-between   ">
+                <span class=" text-dark fw-bolder  ">Address :</span>
+                <span class="text-muted    ">@Model.Address.Street, @Model.Address.City, @Model.Address.Country</span>
+            </div>
+        </div>
+        <div class="col-md-3 p-2  rounded-3 bg-white">
+            <h4 class="text-center">Delivery Method</h4>
+            <hr />
+            <div class="  d-flex justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Name :</span>
+                <span class="text-muted ">@Model.DeliveryMethod.ShortName</span>
+            </div>
+            <div class=" mt-1  d-flex justify-content-between   ">
+                <span class=" text-dark fw-bolder ">Description :</span>
+                <span class="text-muted ">@Model.DeliveryMethod.Description</span>
+            </div>
+            <div class="mt-1   d-flex justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Cost :</span>
+                <span class="text-muted ">@Model.DeliveryMethod.Cost</span>
+            </div>
+            <div class="mt-1   d-flex justify-content-between  ">
+                <span class=" text-dark fw-bolder ">Delivery Time :</span>
+                <span class="text-muted ">@Model.DeliveryMethod.DeliveryTime</span>
+            </div>
+        </div>
+    </div>
+     
+</div>
+

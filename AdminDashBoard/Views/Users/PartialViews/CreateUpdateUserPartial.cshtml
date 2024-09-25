@@ -1,0 +1,41 @@
+﻿@model UserViewModel
+@* @inject IDepartmentRepository _departmentRepository // DIView To Create obj From Class Department // //(Go To UnitOfWork) *@
+@* @inject IUintOfWork _uintOfWork *@
+@{
+    /* type: dynimic to SelectList */
+    // var Departments = new SelectList(await _uintOfWork.DepartmentRepository.GetAllAsync(), nameof(Department.Id), nameof(Department.Name));
+}
+
+
+<div class="  ">
+
+    @* @if (@ViewData["Image"] is not null)
+    {
+        <div class=" d-flex justify-content-center align-items-center pt-3 ">
+            <div class=" img-card w-50 d-flex justify-content-center align-items-center">
+                <img src="~/Files/Images/@ViewData["Image"]" class="img-product card-img-top w-50 rounded-circle">
+            </div>
+        </div>
+    } *@
+
+    <label asp-for="UserName" class="text-light fw-semibold"></label>
+    <input asp-for="UserName" class=" w mt-1 form-control " />
+    <span asp-validation-for="UserName" class="text-danger"></span> @* //for validtion  *@
+
+    <label asp-for="PhoneNumber" class="my-1 text-light fw-semibold"></label>
+    <input asp-for="PhoneNumber" type="text" class="form-control" />
+
+   @*  <label asp-for="Email" class="my-1 text-light fw-semibold"></label>
+    <input asp-for="Email" class="form-control" /> *@
+    @* <span></span> //for validtion *@
+
+  @*   <label asp-for="Address" class=" my-1 text-light fw-semibold"></label>
+    <input asp-for="Address" class="form-control " /> *@
+    @* <span></span> //for validtion *@
+
+
+
+
+
+
+</div>

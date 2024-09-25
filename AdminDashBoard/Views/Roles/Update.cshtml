@@ -1,0 +1,33 @@
+﻿@model RoleViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<div class="container section d-flex justify-content-center align-items-center">
+    <div class="col-md-7 rounded-4  shadow-lg  ">
+
+        <form asp-action="Update" enctype="multipart/form-data" class="  d-flex align-items-center justify-content-center py-4">
+            <div class=" form col-lg-6 d-flex flex-column p-3  rounded-5 Form-Depatemnt ">
+
+                <partial name="PartialViews/CreateUpdateRolePartial" />
+
+                <div class="d-flex  align-items-center justify-content-center mt-5">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                    <a asp-controller="Roles" asp-action="AddOrRemoveUsers" asp-route-roleId="@Model.Id" class="btn btn-primary ms-3 "> Add To User</a>
+                    <a asp-controller="Roles" asp-action="Index" class="btn btn-outline-light ms-3 "> Back To List</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section validattionsScriptSection {
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+

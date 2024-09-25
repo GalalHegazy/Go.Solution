@@ -1,0 +1,26 @@
+﻿@model ProductViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class=" rounded-4  shadow-lg   ">
+    <form asp-action="Delete" class=" row container ">
+
+        <partial name="PartialViews/DeleteDetailsProductPartial" />
+
+        <div class="d-flex align-items-center justify-content-center my-5 ">
+            <input type="submit" value="Delete" class="btn btn-danger me-3" />
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-light ms-3 "> Cancel</a>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+

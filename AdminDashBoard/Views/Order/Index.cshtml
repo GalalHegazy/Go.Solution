@@ -1,0 +1,37 @@
+﻿@model IReadOnlyList<Order>
+
+<h1 class="text-left text-light fs-1 fw-bolder">All Orders.</h1>
+<div class="row  rounded-5 shadow-lg  p-4 mb-5 ">
+    @if (Model.Count() > 0)
+    { 
+        <div class="card ">
+            <div class="card-body">
+                <table id="datatablesSimple" width="100%">
+                    <thead>
+                        <tr >
+                            <th>Order ID</th>
+                            <th>Customer</th> @*Buyer Email*@
+                            <th>Order</th>  @*Product Email*@
+                            <th>Delivery Date</th>  @*Order Date*@
+                            <th>Delivery Pricing</th>  @*Delivery Cost*@
+                            <th>Delivery Status</th>  @*Stutus*@
+                            <th hidden></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <partial name="PartialViews/OrdersTablePartial" />
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="Drpartmrnt-Error text-center py-5  ">
+            <i class="fa-solid fa-triangle-exclamation text-danger mb-3 "></i>
+            <h2 class="text-light "> There Is No Orders!</h2>
+        </div>
+    }
+</div>

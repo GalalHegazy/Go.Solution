@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@* <div class=" d-flex justify-content-between  mb-3">
+
+    <div class="card  shadow-lg text-bg-secondary  " style="width:18rem;">
+        <div class="card-header text-center fs-4">Total Employee</div>
+        <div class="card-body text-center ">
+            <span class="card-text  fs-3">@ViewBag.TotalEmp</span>
+        </div>
+    </div>
+
+    <div class="card shadow-lg  text-bg-secondary  " style="width:18rem;">
+        <div class="card-header text-center fs-4 ">Employee Type </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-around align-items-center">
+                <span>Full Time :</span>
+                <span class="fs-5">@ViewBag.TotalEmpFull</span>
+            </div>
+            <div class="d-flex justify-content-around align-items-center ">
+                <span>Part Time :</span>
+                <span class="fs-5">@ViewBag.TotalEmpPart</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-lg  text-bg-secondary " style="width:18rem;">
+        <div class="card-header  text-center fs-4">Male</div>
+        <div class="card-body text-center">
+            <span class="card-text  fs-3">@ViewBag.TotalEmpMale</span>
+        </div>
+    </div>
+
+    <div class="card shadow-lg  text-bg-secondary  " style="width:18rem;">
+        <div class="card-header text-center fs-4">Female</div>
+        <div class="card-body text-center">
+            <span class="card-text fs-3">@ViewBag.TotalEmpFemale</span>
+        </div>
+    </div>
+
+</div> *@
+
+<h1 class="text-left text-light fs-1 fw-bolder">All Products.</h1>
+<div class=" container  rounded-4 shadow-lg  pb-4 mt-2 mb-5 ">
+    @if (Model.Count() > 0)
+    {
+
+        <div class=" d-flex justify-content-between row pt-4  ">
+            <form asp-action="Index" class="d-flex col-md-3  ">
+                <input class=" form-control" type="text" id="SearchInputProd" name="SearchInputProd" placeholder="Product Name">
+                <button class="btn btn-success ms-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div class=" d-flex justify-content-end col-md-3  ">
+                <a asp-controller="Product" asp-action="Create" class="btn btn-success  "> <i class="fa-solid fa-circle-plus me-1"></i> Add Product</a>
+            </div>
+        </div>
+
+        <div class=" Prod-Card  row mt-2 g-3  ">
+
+            <partial name="PartialViews/ProductTablePartial" />
+           
+        </div>
+
+    }
+    else
+    {
+        <div class="Drpartmrnt-Error text-center py-5  ">
+            <i class="fa-solid fa-triangle-exclamation text-danger mb-3 "></i>
+            <h2 class="text-light "> There Is No Products!</h2>
+            <a asp-controller="Product" asp-action="Create" class="btn btn-success mb-1 mt-5 ">Create New Product</a>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+﻿@model SignInDto
+@{
+    ViewData["Title"] = "ACCOUNT LOG IN. ";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<div class="bg-white  rounded-3 shadow-lg ">
+
+    <form asp-action="LogIn" class="pt-5 pb-3 d-flex flex-column justify-content-center align-items-center">
+
+        <div class="w-100 d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-envelope fs-2 me-3 "></i>
+            <input class="form-control  border-5 w-75 " placeholder="Email" asp-for="Email" />
+        </div>
+
+
+        <div class="w-100 d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-key fs-2 me-3 "></i>
+            <input class="form-control border-5 w-75 " type="password" placeholder="Password" asp-for="Password" />
+        </div>
+
+       @*  <div class="w-75 mt-1 ms-5">
+        <input type="checkbox" class="me-1" asp-for="RememberMe"/><label for="rememberMe">Remember Me?</label>
+        </div> *@
+
+        <div class="bg-danger text-light rounded-4" asp-validation-summary="ModelOnly"></div>
+
+   
+         <input type="submit" value="Sign In" class="btn fs-5 text-white rounded-5 mt-3" />
+
+    </form>
+
+    <div class=" d-flex flex-column justify-content-center align-items-center  ">
+        <p class="fw-bolder">
+            Don’t have an Account?
+            <a asp-action="SignUp" class=" text-decoration-none border-0 fw-bold text-info bg-transparent">Sign Up</a>
+        </p>
+     @*    <p class="fw-bolder">
+            <a asp-action="ForgetPassword" class=" text-decoration-none border-0 fw-bold text-info bg-transparent">Forget Your Password?</a>
+        </p> *@
+    </div>
+
+</div>
+

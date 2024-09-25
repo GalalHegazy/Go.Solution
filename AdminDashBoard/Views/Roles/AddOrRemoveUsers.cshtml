@@ -1,0 +1,32 @@
+﻿@model List<UserInRoleViewModel>
+@{
+    ViewData["Title"] = "AddOrRemoveUsers";
+    var RoleId = ViewBag.RoleId;
+}
+
+<h1 class=" text-center text-light fs-4 fw-bolder">Add Or Remove Role To User.</h1>
+<div class="container section d-flex justify-content-center align-items-center">
+    <div class="col-md-7 rounded-4  shadow-lg  ">
+
+        <form asp-action="AddOrRemoveUsers" asp-route-roleId="@RoleId" enctype="multipart/form-data" class="  d-flex align-items-center justify-content-center py-4">
+            <div class=" form col-lg-6 d-flex  p-3  rounded-5 Form-Depatemnt ">
+
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    <input asp-for="@Model[i].IsSelected" type="checkbox" class="mt-1 form-check-input" />
+                    <label asp-for="@Model[i].IsSelected" class="text-light fw-semibold ms-1">@Model[i].UserName</label>
+
+                    <input asp-for="@Model[i].UserId" hidden />
+                }
+
+                <div class="d-flex align-items-center justify-content-center mt-5">
+                    <input type="submit" value="Update" class="btn btn-success me-3"/>
+                    <a asp-controller="Roles" asp-action="Update" asp-route-id="@RoleId" class="btn btn-outline-light ms-3 ">Cancel</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+

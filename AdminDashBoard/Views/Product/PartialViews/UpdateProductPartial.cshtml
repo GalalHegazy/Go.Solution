@@ -1,0 +1,60 @@
+﻿@model ProductViewModel
+@inject IUnitOfWork _uintOfWork
+@{
+    var Brands = new SelectList(_uintOfWork.Repository<ProductBrand>().GetAllAsync().Result, nameof(ProductBrand.Id), nameof(ProductBrand.Name));
+    var Categories = new SelectList(_uintOfWork.Repository<ProductCategory>().GetAllAsync().Result, nameof(ProductCategory.Id), nameof(ProductCategory.Name));
+}
+@if (@ViewData["Image"] is not null)
+{
+    <div class="col-md-6 p-5 ">
+
+
+        <div class=" d-flex justify-content-center align-items-center pt-3 ">
+            <div class=" img-card w-50 d-flex justify-content-center align-items-center">
+                <img src="~/@ViewData["Image"]" class="img-product card-img-top w-75 h-50 rounded-4">
+            </div>
+        </div>
+
+
+    </div>
+}
+<div class="col-md-6 p-5  ">
+
+    <label asp-for="Name" class="text-light fw-semibold"></label>
+    <input asp-for="Name" class=" mt-1 form-control " />
+    <span asp-validation-for="Name" class="text-danger"></span> @* //for validtion  *@
+
+    <label asp-for="Description" class="my-1 text-light fw-semibold"></label>
+    <textarea asp-for="Description"   class="form-control" ></textarea>
+
+    <label asp-for="Price" class="my-1 text-light fw-semibold"></label>
+    <input asp-for="Price" class="form-control" />
+    @* <span></span> //for validtion *@
+
+
+    <div class="row  mt-2  ">
+
+        <div class="col-md-6">
+            <label></label>
+            <label asp-for="PictureUrl" class=" text-light fw-semibold"></label>
+            <input asp-for="Image" type="file" aria-invalid="false" class="form-control mt-1" />
+
+
+            <label></label>
+            <select asp-for="BrandId" class="form-select form-select mt-1 " asp-items="Brands">
+                <option disabled selected> --- Select Brand --- </option>
+            </select>
+            @* <span></span> //for validtion *@
+
+        </div>
+        <div class="col-md-6">
+
+            <label></label>
+            <select asp-for="CategoryId" class="form-select form-select mt-1 " asp-items="Categories">
+                <option disabled selected> --- Select Category --- </option>
+            </select>
+
+        </div>
+
+    </div>
+</div>

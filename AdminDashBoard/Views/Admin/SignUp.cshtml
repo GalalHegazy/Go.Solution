@@ -1,0 +1,50 @@
+﻿@model SignUpDto
+@{
+    ViewData["Title"] = "ACCOUNT SIGN UP.";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+
+<div class="bg-white  rounded-3 shadow-lg ">
+
+    <form asp-action="SignUp" class="pt-5 pb-4 d-flex flex-column justify-content-center align-items-center">
+
+        <div class="w-100 d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-user fs-2  me-3"></i>
+            <input class="form-control border-5  w-75" placeholder="User Name" asp-for="Name"  />
+        </div>
+
+
+
+        <div class="w-100 d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-envelope fs-2 me-3 "></i>
+            <input class="form-control  border-5 w-75 " placeholder="Email" asp-for="Email" />
+        </div>
+
+
+        <div class="w-100 d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-key fs-2 me-3 "></i>
+            <input class="form-control border-5 w-75 " type="password" placeholder="Password" asp-for="Password" />
+        </div>
+
+    @*     <div class="w-100 d-flex justify-content-center align-items-center mb-3">
+            <i class="fa-solid fa-check-double fs-2 me-3"></i>
+            <input class="form-control  border-5 w-75" placeholder="Confirm Password" asp-for="ConfirmPassword" />
+        </div> *@
+
+        <div class="bg-danger text-light rounded-4"  asp-validation-summary="ModelOnly"></div>
+
+
+        <input type="submit"  value="Sign Up" class="btn fs-5 text-white rounded-5 mt-3" />
+
+    </form>
+
+    <div class=" d-flex justify-content-center align-items-center  ">
+        <p class="fw-bolder">
+            Do You have an Account?
+            <a asp-action="LogIn" class=" text-decoration-none border-0 fw-bold text-info bg-transparent">Sign In</a>
+        </p>
+    </div>
+
+</div>
+

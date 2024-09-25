@@ -1,0 +1,29 @@
+﻿@model ProductViewModel
+@{
+    ViewData["Title"] = "Update";
+   
+}
+
+<div class=" rounded-4  shadow-lg  d-flex justify-content-center align-items-center ">
+                                  @* for encrypted file *@
+    <form asp-action="Update" enctype="multipart/form-data" class=" row container  ">
+        
+        <partial name="PartialViews/UpdateProductPartial" />
+
+        <div class="d-flex align-items-center justify-content-center my-5">
+            <input type="submit" value="Save" class="btn btn-success me-3" />
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-light ms-3 "> Back To List</a>
+        </div>
+    </form>
+</div>
+
+
+@section validattionsScriptSection {
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+
+
+

@@ -1,0 +1,23 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container section d-flex justify-content-center align-items-center">
+    <div class="col-md-7 rounded-4  shadow-lg  ">
+
+        <form asp-action="Details" class=" d-flex align-items-center justify-content-center py-5">
+            <div class=" form col-lg-6 d-flex flex-column  rounded-5 Form-Depatemnt ">
+
+                <partial name="PartialViews/DeleteDetailsUserPartial" />
+
+                <div class="d-flex align-items-center justify-content-center mt-4">
+                    <a asp-controller="Users" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-success  ms-3 ">Edit</a>
+                    <a asp-controller="Users" asp-action="Index" class="btn btn-outline-light ms-3 "> Back To List</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+

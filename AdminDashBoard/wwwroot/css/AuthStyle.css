@@ -1,0 +1,48 @@
+﻿body {
+    font-family: 'Playfair Display', serif;
+}
+
+#home {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(57deg,#25476A 30%,#03A9F4 30%);
+}
+
+.layout {
+    background-color: rgba(0, 0, 0, 0.418);
+}
+
+h1 {
+    margin-top: 100px;
+    font-family: Ubuntu-Bold;
+    letter-spacing: 1px;
+}
+
+.bg-white {
+    width: 400px;
+}
+
+.form-control:focus {
+    color: #212529;
+    border-color: #555;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem transparent;
+}
+
+.btn {
+    background: linear-gradient(#a445b2,#d41872,#fa4299);
+    width: 150px;
+    height: max-content;
+    letter-spacing: 1px;
+    font-family: Ubuntu-Bold;
+    transition: background .5s;
+}
+
+.btn:hover {
+    background: #25476A;
+}
+
+p {
+    letter-spacing: 1px;
+    font-size: 12px;
+}

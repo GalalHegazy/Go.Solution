@@ -1,0 +1,180 @@
+﻿@inject SignInManager<ApplicationUser> signInManger
+@{
+    ViewBag.UserName = TempData["UserName"] as string;
+    TempData.Keep();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;900&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <title>Go</title>
+    <link href="~/Images/logo-slack.svg" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="home">
+        @* background *@
+        <div class="layout w-100 h-100 overflow-auto">
+            @* layout *@
+
+            @* Start NavBar *@
+            <nav class="navbar navbar-dark pt-4  bg-transparent">
+                <div class="container ">
+
+
+
+                    <button class="navbar-toggler nav-btn " type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                        <span class="navbar-toggler-icon "></span>
+                    </button>
+
+                    <form class="d-flex w-50" role="search">
+                        <input class="form-control search-Home text-light rounded-4 bg-transparent" type="search" placeholder="Search here" aria-label="Search">
+
+
+                    </form>
+                    <div class="dropdown ">
+                        <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user-tie me-1"></i>@ViewBag.UserName</a>
+                        <ul class="dropdown-menu dropdown-menu-end text-white" aria-labelledby="navbarDropdown">
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a asp-controller="Admin" asp-action="LogOut" class="dropdown-item"> <i class="fa-solid fa-right-from-bracket me-1"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvasDarkNavbar"
+                         aria-labelledby="offcanvasDarkNavbarLabel">
+
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"></h5>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <svg fill="#ffffff" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        fill: none;
+                                                    }
+                                                </style>
+                                            </defs><title>logo--slack</title><path d="M9.0423,19.1661A2.5212,2.5212,0,1,1,6.5212,16.645H9.0423Z"></path><path d="M10.3127,19.1661a2.5212,2.5212,0,0,1,5.0423,0v6.3127a2.5212,2.5212,0,1,1-5.0423,0Z"></path><path d="M12.8339,9.0423A2.5212,2.5212,0,1,1,15.355,6.5212V9.0423Z"></path><path d="M12.8339,10.3127a2.5212,2.5212,0,0,1,0,5.0423H6.5212a2.5212,2.5212,0,1,1,0-5.0423Z"></path><path d="M22.9577,12.8339a2.5212,2.5212,0,1,1,2.5211,2.5211H22.9577Z"></path><path d="M21.6873,12.8339a2.5212,2.5212,0,0,1-5.0423,0V6.5212a2.5212,2.5212,0,1,1,5.0423,0Z"></path><path d="M19.1661,22.9577a2.5212,2.5212,0,1,1-2.5211,2.5211V22.9577Z"></path><path d="M19.1661,21.6873a2.5212,2.5212,0,0,1,0-5.0423h6.3127a2.5212,2.5212,0,1,1,0,5.0423Z"></path><rect id="_Transparent_Rectangle_" data-name="<Transparent Rectangle>" class="cls-1" width="32" height="32"></rect>
+                                        </g>
+                                    </svg> Go.
+                                </a>
+                            </div>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                        </div>
+
+                        @* Start NavBar item *@
+                        <div class="d-flex flex-column justify-content-between h-100">
+
+                            <div class="offcanvas-body ">
+
+                                <div class="sb-sidenav-menu-heading mt-1">DashBord</div>
+                                <hr />
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house me-1"></i>Overview</a>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Product" asp-action="Index"><i class="fa-solid fa-qrcode me-1"></i> Products</a>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Brand" asp-action="Index"><i class="fa-solid fa-icons me-1"></i> Brands</a>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Category" asp-action="Index"><i class="fa-solid fa-shapes me-1"></i>Categories</a>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link " asp-area="" asp-controller="Order" asp-action="Index"><i class="fa-solid fa-bag-shopping me-1"></i>Orders</a>
+                                    </li>
+                                </ul>
+                                <br />
+                                <div class="sb-sidenav-menu-heading">Security</div>
+                                <hr />
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Index"><i class="fa-solid fa-id-badge me-1"></i>Users</a>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+
+                                        <a class="nav-link " aria-current="page" asp-area="" asp-controller="Roles" asp-action="Index"><i class="fa-solid fa-shield-halved me-1"></i>Roles</a>
+                                    </li>
+                                </ul>
+                                <br />
+                                <div class="sb-sidenav-menu-heading mt-1">preferences</div>
+                                <hr />
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" ><i class="fa-solid fa-circle-info me-1"></i>Help Center</a>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" ><i class="fa-solid fa-gear  me-1"></i>Setting</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            @* Start Footer *@
+                            <div class="footer  d-flex flex-column justify-content-center align-items-center ">
+                                <p class="footer-text text-center">
+                                    Copyright &copy; 2024 Designed by HAGZR. <br /> All rights reserved
+                                </p>
+                            </div>
+                            @* End Footer *@
+
+                        </div>
+                        @* End NavBar item *@
+
+                    </div>
+                </div>
+            </nav>
+            @* End   NavBar *@
+
+            @* Start Mine Body *@
+            <section class="container section ">
+
+
+
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                @RenderBody()
+
+
+            </section>
+            @* End   Mine Body *@
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("validattionsScriptSection", required: false)
+</body>
+
+</html>
+
+
